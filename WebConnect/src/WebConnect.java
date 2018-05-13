@@ -830,22 +830,36 @@ public class WebConnect {
         //System.out.println(freshCourse("Python编程：从新手到专家之路"));
     }
 
+    public void getPageCode(String PagePath) throws Exception {
+        HttpURLConnection conn = GetConn(SupplyCancelPage, cookieKey, "GET", false);
+        conn.setRequestProperty("Referer", HelperControlPage);
+        conn.setRequestProperty("Host", "elective.pku.edu.cn");
+        conn.setRequestProperty("Accept-Encoding","gzip, deflate");
+        conn.setRequestProperty("Upgrade-Insecure-Requests","1");
+        conn.connect();
+
+        displayConnToFile(conn, "PageWeb.txt");
+
+        conn.disconnect();
+    }
+
     public static void main(String[] args) {
         WebConnect X = new WebConnect();
         try {
-            if (X.Login("1600012799","233333333")) {
+            if (X.Login("1600012799","2333333")) {
                 System.out.println("login successfully!");
                 Vector<String> lst = new Vector<>();
                 lst.add("Python编程：从新手到专家之路");
                 lst.add("生物特征识别");
                 lst.add("深度学习");
-                lst.add("计算机视觉中的机器学习");
+                //lst.add("计算机视觉中的机器学习");
                 lst.add("机器学习与时间序列分析");
 
-                X.supply(lst);
+                //X.supply(lst);
                 //X.Crawl2getWeb();
                 //X.getFirstWebsite();
                 //X.popFirstWebsite();
+                X.getPageCode(SupplyCancelPage);
             }
             else {
                 System.out.println("user name or password is wrong!");
