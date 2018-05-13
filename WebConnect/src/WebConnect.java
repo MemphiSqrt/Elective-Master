@@ -657,6 +657,7 @@ public class WebConnect {
         String seqnum = null;
         boolean flag = false;
         String upLimit = "";
+        //System.out.println("work here");
         while (it.hasNext()) {
             String line = String.valueOf(it.next());
             //System.out.println(line);
@@ -717,7 +718,7 @@ public class WebConnect {
         conn.setRequestProperty("Upgrade-Insecure-Requests","1");
         conn.connect();
 
-        BufferedReader buffR = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
+        BufferedReader buffR = new BufferedReader(new InputStreamReader(conn.getInputStream(),"GBK"));
         String line;
         Vector<String> supplyPageBody = new Vector<>();
         supplyPageBody.clear();
@@ -765,14 +766,18 @@ public class WebConnect {
 
             System.out.println(line);
             if (line.contains("2")) {
-                conn = GetConn(seqnum, cookieKey, "GET", false);
-                conn.setRequestProperty("Referer", SupplyCancelPage);
-                conn.setRequestProperty("Host", "elective.pku.edu.cn");
-                conn.setRequestProperty("Accept-Encoding", "gzip, deflate");
-                conn.setRequestProperty("Upgrade-Insecure-Requests", "1");
-                conn.connect();
-                displayConnNoPrint(conn);
-                conn.disconnect();
+                try {
+                    conn = GetConn(seqnum, cookieKey, "GET", false);
+                    conn.setRequestProperty("Referer", SupplyCancelPage);
+                    conn.setRequestProperty("Host", "elective.pku.edu.cn");
+                    conn.setRequestProperty("Accept-Encoding", "gzip, deflate");
+                    conn.setRequestProperty("Upgrade-Insecure-Requests", "1");
+                    conn.connect();
+                    displayConnNoPrint(conn);
+                    conn.disconnect();
+                } catch (Exception e) {
+                    return false;
+                }
                 flag = true;
             } else {
                 flag = false;
@@ -851,20 +856,20 @@ public class WebConnect {
     public static void main(String[] args) {
         WebConnect X = new WebConnect();
         try {
-            if (X.Login("1600012799","2333333")) {
+            if (X.Login("1600012799","2333333333")) {
                 System.out.println("login successfully!");
                 Vector<String> lst = new Vector<>();
                 lst.add("Python编程：从新手到专家之路");
-                lst.add("生物特征识别");
-                lst.add("深度学习");
+                //lst.add("生物特征识别");
+                //lst.add("深度学习");
                 //lst.add("计算机视觉中的机器学习");
-                lst.add("机器学习与时间序列分析");
+                //lst.add("机器学习与时间序列分析");
 
-                //X.supply(lst);
+                X.supply(lst);
                 //X.Crawl2getWeb();
                 //X.getFirstWebsite();
                 //X.popFirstWebsite();
-                X.getPageInfo(SupplyCancelPage);
+                //X.getPageInfo(SupplyCancelPage);
 
             }
             else {
