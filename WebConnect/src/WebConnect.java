@@ -5,10 +5,10 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.Vector;
+
 import image_processing.trycaptcha;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import crawl.Crawl2;
 
 public class WebConnect {
 
@@ -838,9 +838,14 @@ public class WebConnect {
         conn.setRequestProperty("Upgrade-Insecure-Requests","1");
         conn.connect();
 
-        displayConnToFile(conn, "PageWeb.txt");
+        displayConnToFile(conn, "src/crawl/PageWeb.txt");
 
         conn.disconnect();
+    }
+
+    public void getPageInfo(String PagePath) throws Exception {
+        getPageCode(SupplyCancelPage);
+        Crawl2.main(null);
     }
 
     public static void main(String[] args) {
@@ -859,7 +864,8 @@ public class WebConnect {
                 //X.Crawl2getWeb();
                 //X.getFirstWebsite();
                 //X.popFirstWebsite();
-                X.getPageCode(SupplyCancelPage);
+                X.getPageInfo(SupplyCancelPage);
+
             }
             else {
                 System.out.println("user name or password is wrong!");

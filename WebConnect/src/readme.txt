@@ -19,3 +19,5 @@ list.add("太极拳");
 X.supply(list); //开始刷课，刷到课就会退出
 
 
+// 就会在 src/crawl/PageWebInfo.txt 里得到课程信息，把SupplyCancelPage换成别的网站同样work
+X.getPageInfo(SupplyCancelPage);
