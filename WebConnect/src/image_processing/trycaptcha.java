@@ -2,15 +2,14 @@ package image_processing;
 
 
 import java.awt.image.*;
-import java.awt.Color;  
 import java.io.*;
 import javax.imageio.ImageIO;
 
 public class trycaptcha {
 
     static int len = -1;
-	static int white = new Color(255, 255, 255).getRGB(); 
-	static int black = new Color(0, 0, 0).getRGB(); 
+	static int white = -1; 
+	static int black = -16777216; 
 	static boolean gry[][][] = new boolean[65][17][22];
 	static char ys[] = new char[100];
 	static int ks[] = new int[65], js[] = new int[65];
@@ -23,8 +22,8 @@ public class trycaptcha {
 		int width = image.getWidth();  
 		int height = image.getHeight();  
 		int gry[][] = new int[width][height], new_gry[][] = new int[width][height];
-        int white = new Color(255, 255, 255).getRGB(); 
-        int black = new Color(0, 0, 0).getRGB();  
+        int white = -1; 
+        int black = -16777216;  
 		
 		BufferedImage binImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
 		for(i= 0 ; i < width ; i++)
