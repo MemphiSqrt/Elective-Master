@@ -22,3 +22,7 @@ Java project for Program Designing of JAVA
 @warshallrho
 
 @mrmrfan
+
+# Warning
+
+本代码仅限于技术交流，禁止作商业用途及刷课使用
