@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="50sp"
+        android:id="@+id/list"
+        android:orientation="vertical">
+
+        >
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="fill_parent"
+            android:layout_height="500dp"
+            android:cacheColorHint ="#00000000"
+            ></ListView>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="53dip"
+            android:layout_alignBottom="@id/list"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/selectall"
+                android:layout_width="80dip"
+                android:layout_height="50dip"
+                android:layout_marginLeft="20dip"
+                android:text="全选"
+                android:gravity="center"
+                />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="80dip"
+                android:layout_height="50dip"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="108dp"
+                android:gravity="center"
+                android:text="取消已选" />
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="80dip"
+                android:layout_height="50dip"
+                android:layout_marginLeft="350dip"
+                android:text="刷课"
+                android:gravity="center"
+                />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/showlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="textMultiLine"
+            android:text="已选课程列表：" />
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:baselineAligned="false"
+            android:paddingBottom="2sp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#b40605"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2sp"
+                    android:layout_marginTop="5sp">
+
+                    <ImageView
+                        android:id="@+id/img_ipgw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="21sp"
+                        android:layout_gravity="center"
+                        android:contentDescription="补退选"
+                        android:src="@mipmap/tab_select" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/title_ipgw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="补退选"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#b40605"
+                android:clickable="true"
+                android:onClick="courseinfo"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2sp"
+                    android:layout_marginTop="5sp">
+
+                    <ImageView
+                        android:id="@+id/img_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="21sp"
+                        android:layout_gravity="center"
+                        android:contentDescription="课程信息"
+                        android:src="@mipmap/tab_course" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/title_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="课程信息"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
